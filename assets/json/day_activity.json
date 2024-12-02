@@ -1,0 +1,81 @@
+[
+    {
+        "date": "2024-12-02T10:15:26+07:00",
+        "classes": [
+          {
+            "time": "08:00",
+            "duration": "60 min",
+            "title": "Beach Yoga",
+            "location": "La Playa de la Rada",
+            "spots_left": 8,
+            "childcare": false,
+            "workspace": false,
+            "intensity": "light",
+            "price": "9€",
+            "status": "available"
+          },
+          {
+            "time": "09:00",
+            "duration": "60 min",
+            "title": "Reformer Pilates",
+            "location": "Wellness Studios",
+            "spots_left": 4,
+            "intensity": "medium",
+            "childcare": true,
+            "workspace": false,
+            "price": "15€",
+            "status": "available"
+          },
+          {
+            "time": "12:30",
+            "duration": "45 min",
+            "title": "5-a-side Football",
+            "location": "Municipal Sports Center",
+            "spots_left": 0,
+            "intensity": "high",
+            "childcare": true,
+            "workspace": false,
+            "price": "19€",
+            "status": "unavailable"
+          },
+          {
+            "time": "13:15",
+            "duration": "60 min",
+            "title": "Standing Tapas Lunch",
+            "location": "Casa Marina",
+            "childcare": false,
+            "workspace": false,
+            "spots_left": 8,
+            "price": "15€",
+            "status": "available"
+          },
+          {
+            "time": "15:00",
+            "duration": "60 min",
+            "title": "Kids LEGO Club",
+            "location": "La Bloqueria",
+            "spots_left": 5,
+            "age_group": {
+                "min": 5,
+                "max": 12
+            },
+            "workspace": true,
+            "childcare": false,
+            "price": "10€/hour",
+            "status": "available"
+          },
+          {
+            "time": "16:00",
+            "duration": "60 min",
+            "title": "5-a-side Football",
+            "location": "Municipal Sports Center",
+            "spots_left": 7,
+            "intensity": "high",
+            "childcare": true,
+            "workspace": false,
+            "price": "10€/hour",
+            "status": "available"
+          }
+        ]
+      }
+]
