@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'Otto Parking',
+      title: 'Town Square',
       theme: AppTheme.mainTheme,
       themeMode: ThemeMode.system,
       routerConfig: Routes.routes,
