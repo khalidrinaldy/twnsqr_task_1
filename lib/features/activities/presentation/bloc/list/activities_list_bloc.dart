@@ -13,14 +13,15 @@ class ActivitiesListBloc extends Bloc<ActivitiesListEvent, ActivitiesListState> 
   ActivitiesListBloc() : super(_Initial()) {
     on<ActivitiesListEvent>((event, emit) async {
       await event.map(
-        fetch: (e) => getActivities(e, emit),
+        fetch: (e) => getActivities(e, emit, categories: e.categories),
       );
     });
   }
 
-  Future<void> getActivities(ActivitiesListEvent event, Emitter<ActivitiesListState> emit) async {
+  Future<void> getActivities(ActivitiesListEvent event, Emitter<ActivitiesListState> emit,
+      {required List<String> categories}) async {
     emit(const ActivitiesListState.loading());
-    final response = await _usecase.call();
+    final response = await _usecase.call(params: categories);
     response.fold(
       (l) => emit(ActivitiesListState.failed(l)),
       (r) => emit(ActivitiesListState.success(data: r)),

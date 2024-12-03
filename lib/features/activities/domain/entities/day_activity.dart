@@ -38,6 +38,7 @@ class ClassModel {
   final bool childcare;
   final AgeGroup? ageGroup;
   final bool workspace;
+  final List<String> categories;
 
   ClassModel({
     required this.time,
@@ -51,6 +52,7 @@ class ClassModel {
     required this.childcare,
     this.ageGroup,
     required this.workspace,
+    required this.categories,
   });
 
   factory ClassModel.fromRawJson(String str) => ClassModel.fromJson(json.decode(str));
@@ -69,6 +71,7 @@ class ClassModel {
         childcare: json["childcare"],
         ageGroup: json["age_group"] == null ? null : AgeGroup.fromJson(json["age_group"]),
         workspace: json["workspace"],
+        categories: List<String>.from(json["categories"].map((x) => x)),
       );
 
   Map<String, dynamic> toJson() => {
@@ -83,6 +86,7 @@ class ClassModel {
         "childcare": childcare,
         "age_group": ageGroup?.toJson(),
         "workspace": workspace,
+        "categories": List<dynamic>.from(categories.map((x) => x)),
       };
 }
 

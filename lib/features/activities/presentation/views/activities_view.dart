@@ -40,7 +40,7 @@ class ActivitiesView extends StatelessWidget {
           create: (context) => ActivitiesController(),
         ),
         BlocProvider(
-          create: (context) => ActivitiesListBloc()..add(const ActivitiesListEvent.fetch()),
+          create: (context) => ActivitiesListBloc()..add(const ActivitiesListEvent.fetch(categories: [])),
         ),
       ],
       child: Scaffold(

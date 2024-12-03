@@ -16,8 +16,9 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ActivitiesUIState {
-  List<FilterModel> get filters => throw _privateConstructorUsedError;
-  FilterModel<String>? get selectedFilter => throw _privateConstructorUsedError;
+  List<FilterModel<String>> get filters => throw _privateConstructorUsedError;
+  List<FilterModel<String>> get selectedFilter =>
+      throw _privateConstructorUsedError;
 
   /// Create a copy of ActivitiesUIState
   /// with the given fields replaced by the non-null parameter values.
@@ -32,7 +33,9 @@ abstract class $ActivitiesUIStateCopyWith<$Res> {
           ActivitiesUIState value, $Res Function(ActivitiesUIState) then) =
       _$ActivitiesUIStateCopyWithImpl<$Res, ActivitiesUIState>;
   @useResult
-  $Res call({List<FilterModel> filters, FilterModel<String>? selectedFilter});
+  $Res call(
+      {List<FilterModel<String>> filters,
+      List<FilterModel<String>> selectedFilter});
 }
 
 /// @nodoc
@@ -51,17 +54,17 @@ class _$ActivitiesUIStateCopyWithImpl<$Res, $Val extends ActivitiesUIState>
   @override
   $Res call({
     Object? filters = null,
-    Object? selectedFilter = freezed,
+    Object? selectedFilter = null,
   }) {
     return _then(_value.copyWith(
       filters: null == filters
           ? _value.filters
           : filters // ignore: cast_nullable_to_non_nullable
-              as List<FilterModel>,
-      selectedFilter: freezed == selectedFilter
+              as List<FilterModel<String>>,
+      selectedFilter: null == selectedFilter
           ? _value.selectedFilter
           : selectedFilter // ignore: cast_nullable_to_non_nullable
-              as FilterModel<String>?,
+              as List<FilterModel<String>>,
     ) as $Val);
   }
 }
@@ -74,7 +77,9 @@ abstract class _$$ActivitiesUIStateImplCopyWith<$Res>
       __$$ActivitiesUIStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<FilterModel> filters, FilterModel<String>? selectedFilter});
+  $Res call(
+      {List<FilterModel<String>> filters,
+      List<FilterModel<String>> selectedFilter});
 }
 
 /// @nodoc
@@ -91,17 +96,17 @@ class __$$ActivitiesUIStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? filters = null,
-    Object? selectedFilter = freezed,
+    Object? selectedFilter = null,
   }) {
     return _then(_$ActivitiesUIStateImpl(
       filters: null == filters
           ? _value._filters
           : filters // ignore: cast_nullable_to_non_nullable
-              as List<FilterModel>,
-      selectedFilter: freezed == selectedFilter
-          ? _value.selectedFilter
+              as List<FilterModel<String>>,
+      selectedFilter: null == selectedFilter
+          ? _value._selectedFilter
           : selectedFilter // ignore: cast_nullable_to_non_nullable
-              as FilterModel<String>?,
+              as List<FilterModel<String>>,
     ));
   }
 }
@@ -110,19 +115,26 @@ class __$$ActivitiesUIStateImplCopyWithImpl<$Res>
 
 class _$ActivitiesUIStateImpl implements _ActivitiesUIState {
   const _$ActivitiesUIStateImpl(
-      {required final List<FilterModel> filters, required this.selectedFilter})
-      : _filters = filters;
+      {required final List<FilterModel<String>> filters,
+      required final List<FilterModel<String>> selectedFilter})
+      : _filters = filters,
+        _selectedFilter = selectedFilter;
 
-  final List<FilterModel> _filters;
+  final List<FilterModel<String>> _filters;
   @override
-  List<FilterModel> get filters {
+  List<FilterModel<String>> get filters {
     if (_filters is EqualUnmodifiableListView) return _filters;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_filters);
   }
 
+  final List<FilterModel<String>> _selectedFilter;
   @override
-  final FilterModel<String>? selectedFilter;
+  List<FilterModel<String>> get selectedFilter {
+    if (_selectedFilter is EqualUnmodifiableListView) return _selectedFilter;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_selectedFilter);
+  }
 
   @override
   String toString() {
@@ -135,13 +147,15 @@ class _$ActivitiesUIStateImpl implements _ActivitiesUIState {
         (other.runtimeType == runtimeType &&
             other is _$ActivitiesUIStateImpl &&
             const DeepCollectionEquality().equals(other._filters, _filters) &&
-            (identical(other.selectedFilter, selectedFilter) ||
-                other.selectedFilter == selectedFilter));
+            const DeepCollectionEquality()
+                .equals(other._selectedFilter, _selectedFilter));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(_filters), selectedFilter);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_filters),
+      const DeepCollectionEquality().hash(_selectedFilter));
 
   /// Create a copy of ActivitiesUIState
   /// with the given fields replaced by the non-null parameter values.
@@ -155,14 +169,14 @@ class _$ActivitiesUIStateImpl implements _ActivitiesUIState {
 
 abstract class _ActivitiesUIState implements ActivitiesUIState {
   const factory _ActivitiesUIState(
-          {required final List<FilterModel> filters,
-          required final FilterModel<String>? selectedFilter}) =
+          {required final List<FilterModel<String>> filters,
+          required final List<FilterModel<String>> selectedFilter}) =
       _$ActivitiesUIStateImpl;
 
   @override
-  List<FilterModel> get filters;
+  List<FilterModel<String>> get filters;
   @override
-  FilterModel<String>? get selectedFilter;
+  List<FilterModel<String>> get selectedFilter;
 
   /// Create a copy of ActivitiesUIState
   /// with the given fields replaced by the non-null parameter values.

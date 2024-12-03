@@ -13,23 +13,35 @@ class ActivitiesController extends Cubit<ActivitiesUIState> {
                   (e) => FilterModel(label: e, value: e),
                 )
                 .toList(),
-            selectedFilter: null,
+            selectedFilter: [],
           ),
         );
 
   void selectFilter(FilterModel<String> filter) {
-    emit(state.copyWith(selectedFilter: filter));
+    // Check if filter already exist
+    if (state.selectedFilter.contains(filter)) {
+      List<FilterModel<String>> filters = List.from(state.selectedFilter);
+      filters.remove(filter);
+
+      emit(
+        state.copyWith(
+          selectedFilter: filters,
+        ),
+      );
+    } else {
+      emit(state.copyWith(selectedFilter: [...state.selectedFilter, filter]));
+    }
   }
 
   void resetFilter() {
-    emit(state.copyWith(selectedFilter: null));
+    emit(state.copyWith(selectedFilter: []));
   }
 }
 
 @freezed
 class ActivitiesUIState with _$ActivitiesUIState {
   const factory ActivitiesUIState({
-    required List<FilterModel> filters,
-    required FilterModel<String>? selectedFilter,
+    required List<FilterModel<String>> filters,
+    required List<FilterModel<String>> selectedFilter,
   }) = _ActivitiesUIState;
 }

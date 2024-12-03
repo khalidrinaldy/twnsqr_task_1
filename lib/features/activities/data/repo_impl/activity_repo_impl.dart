@@ -8,5 +8,6 @@ class ActivityRepoImpl extends ActivityRepo {
   });
 
   @override
-  Future<DataResponse<List<DayActivity>>> getActivities() async => await activityLocalDataSource.getActivities();
+  Future<DataResponse<List<DayActivity>>> getActivities({required List<String> categories}) async =>
+      await activityLocalDataSource.getActivities(categories: categories);
 }

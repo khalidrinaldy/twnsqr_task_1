@@ -22,7 +22,14 @@ class _MobileView extends StatelessWidget {
               controller: TextEditingController(),
             ),
             24.margin,
-            BlocBuilder<ActivitiesController, ActivitiesUIState>(
+            BlocConsumer<ActivitiesController, ActivitiesUIState>(
+              listenWhen: (previous, current) => previous.selectedFilter != current.selectedFilter,
+              listener: (context, state) {
+                // fetch again
+                context.read<ActivitiesListBloc>().add(
+                      ActivitiesListEvent.fetch(categories: state.selectedFilter.map((e) => e.value).toList()),
+                    );
+              },
               builder: (context, state) {
                 return AppFilter(
                   value: state.selectedFilter,
@@ -30,8 +37,20 @@ class _MobileView extends StatelessWidget {
                   onTapIconFilter: () {},
                   onReset: () {
                     context.read<ActivitiesController>().resetFilter();
+
+                    // // fetch again
+                    // context.read<ActivitiesListBloc>().add(
+                    //       const ActivitiesListEvent.fetch(categories: []),
+                    //     );
                   },
-                  onChanged: (value) => context.read<ActivitiesController>().selectFilter(value),
+                  onChanged: (value) {
+                    context.read<ActivitiesController>().selectFilter(value);
+
+                    // // fetch again
+                    // context.read<ActivitiesListBloc>().add(
+                    //       ActivitiesListEvent.fetch(categories: state.selectedFilter.map((e) => e.value).toList()),
+                    //     );
+                  },
                 );
               },
             ),

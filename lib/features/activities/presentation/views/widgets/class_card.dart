@@ -77,6 +77,7 @@ class _ClassCard extends StatelessWidget {
                   ),
                   12.margin,
                   Wrap(
+                    runSpacing: 5,
                     children: _buildTags(),
                   ),
                 ],

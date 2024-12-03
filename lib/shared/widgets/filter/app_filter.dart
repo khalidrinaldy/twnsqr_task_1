@@ -1,3 +1,4 @@
+import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:responsive_builder/responsive_builder.dart';
@@ -7,10 +8,13 @@ import 'package:twnsqr_task_1/core/utils/theme/textstyle.dart';
 import 'package:twnsqr_task_1/gen/assets.gen.dart';
 import 'package:twnsqr_task_1/shared/widgets/hover/hover_widget.dart';
 
-class FilterModel<T> {
+class FilterModel<T> extends Equatable {
   final String label;
   final T value;
   const FilterModel({required this.label, required this.value});
+  
+  @override
+  List<Object?> get props => [label, value];
 }
 
 class AppFilter<T> extends StatelessWidget {
@@ -23,8 +27,8 @@ class AppFilter<T> extends StatelessWidget {
     required this.onChanged,
   });
 
-  final FilterModel<T>? value;
-  final List<FilterModel> filters;
+  final List<FilterModel<T>> value;
+  final List<FilterModel<T>> filters;
   final void Function() onTapIconFilter;
   final void Function() onReset;
   final void Function(FilterModel<T> value) onChanged;
@@ -60,13 +64,13 @@ class AppFilter<T> extends StatelessWidget {
       ),
       _chip(
         onTap: onReset,
-        isSelected: value == null,
+        isSelected: value.isEmpty,
         label: "All",
       ),
       ...filters.map(
         (e) => _chip(
           onTap: () => onChanged(FilterModel(label: e.label, value: e.value)),
-          isSelected: value?.value == e.value,
+          isSelected: value.contains(e),
           label: e.label,
         ),
       ),
