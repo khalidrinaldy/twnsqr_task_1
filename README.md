@@ -1,16 +1,21 @@
-# twnsqr_task_1
 
-A new Flutter project.
+# Flutter TownSquare
 
-## Getting Started
+## How to run
 
-This project is a starting point for a Flutter application.
+### 1. Run Flutter pub run
 
-A few resources to get you started if this is your first Flutter project:
+```
+flutter pub run build_runner build --delete-conflicting-outputs
+```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### 2. Run the project
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```
+flutter run --release
+```
+
+Task #1 TownSquare Flutter App
+
+Developed by Khalid Rinaldy
+
